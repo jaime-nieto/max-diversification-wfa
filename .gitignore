@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Price data are NOT committed: they belong to their providers (Yahoo Finance,
+# bolsamania.com, FRED) and redistribution may be restricted.
+# `python run_all.py` downloads whatever is missing.
+# What IS committed:
+#   manifest.json   source and download date of every file
+#   membership.csv  who was in the S&P 500 and when
+data/raw/*
+!data/raw/manifest.json
+!data/raw/membership.csv

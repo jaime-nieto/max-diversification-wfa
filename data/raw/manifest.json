@@ -1,0 +1,1108 @@
+{
+  "membership": {
+    "source": "github.com/fja05680/sp500 (MIT licence)",
+    "url": "https://raw.githubusercontent.com/fja05680/sp500/a2430f2af0c79ddf0748e91de11bdeb1616ab5a7/S%26P%20500%20Historical%20Components%20%26%20Changes[ (Updated)].csv",
+    "first_file_ends": "2019-01-11",
+    "last_change": "2026-08-18",
+    "stays_since_download_start": 977,
+    "codes_since_download_start": 953,
+    "downloaded_at_utc": "2026-10-11 19:50"
+  },
+  "holdings": {
+    "source": "iShares Core S&P 500 ETF (IVV) holdings",
+    "url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/latest-holdings.csv",
+    "holdings_as_of": "Oct 08, 2026",
+    "stocks": 504,
+    "downloaded_at_utc": "2026-10-11 19:50"
+  },
+  "prices": {
+    "source": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/quote/<ticker>",
+    "field": "Adj Close (splits and dividends) and Close (splits only)",
+    "tickers_requested": 624,
+    "tickers_downloaded": 624,
+    "tickers_without_data": [],
+    "first_date": "2006-11-30",
+    "last_date": "2026-09-30",
+    "downloaded_at_utc": "2026-10-11 19:50"
+  },
+  "profiles": {
+    "source": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/quote/<ticker>",
+    "field": "longName, sector",
+    "companies": 125,
+    "without_sector": [],
+    "downloaded_at_utc": "2026-10-11 19:50"
+  },
+  "delisted_prices": {
+    "source": "bolsamania.com",
+    "url": "https://www.bolsamania.com/accion/<page>/historico-precios",
+    "field": "close, high, low, open as traded (not adjusted)",
+    "pages": {
+      "ABIOMED-INC": {
+        "rows": 4044,
+        "first_date": "2006-11-30",
+        "last_date": "2022-12-22"
+      },
+      "ACTAVIS": {
+        "rows": 3364,
+        "first_date": "2006-11-30",
+        "last_date": "2020-05-09"
+      },
+      "ACTIVISION-BLIZZARD": {
+        "rows": 4228,
+        "first_date": "2006-11-30",
+        "last_date": "2023-10-13"
+      },
+      "AETNA": {
+        "rows": 3004,
+        "first_date": "2006-11-30",
+        "last_date": "2018-11-28"
+      },
+      "AFFILIATED-COMPUTER-SERVICES": {
+        "rows": 793,
+        "first_date": "2006-11-30",
+        "last_date": "2010-02-05"
+      },
+      "AGL-RESOURCES": {
+        "rows": 2357,
+        "first_date": "2006-11-30",
+        "last_date": "2016-06-30"
+      },
+      "AIRGAS": {
+        "rows": 2377,
+        "first_date": "2006-11-30",
+        "last_date": "2016-05-20"
+      },
+      "AK-STEEL-HOLDING": {
+        "rows": 1528,
+        "first_date": "2006-11-30",
+        "last_date": "2013-01-15"
+      },
+      "ALEXION-PHARM-NASDAQ-National-Market": {
+        "rows": 3714,
+        "first_date": "2006-11-30",
+        "last_date": "2021-07-20"
+      },
+      "ALLEGHENY-ENERGY": {
+        "rows": 1055,
+        "first_date": "2006-11-30",
+        "last_date": "2011-02-25"
+      },
+      "ALLERGAN": {
+        "rows": 2074,
+        "first_date": "2006-11-30",
+        "last_date": "2015-03-16"
+      },
+      "ALPHA-NATURAL-RES-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 1726,
+        "first_date": "2006-11-30",
+        "last_date": "2013-10-30"
+      },
+      "ALTERA-CORP": {
+        "rows": 2279,
+        "first_date": "2006-11-30",
+        "last_date": "2015-12-24"
+      },
+      "AMERICAN-CAP": {
+        "rows": 745,
+        "first_date": "2006-11-30",
+        "last_date": "2010-04-01"
+      },
+      "ANADARKO-PETROLEUM-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 3172,
+        "first_date": "2006-11-30",
+        "last_date": "2019-08-08"
+      },
+      "ANSYS": {
+        "rows": 4667,
+        "first_date": "2006-11-30",
+        "last_date": "2025-07-17"
+      },
+      "AVALONBAY-COM-REIT": {
+        "rows": 4907,
+        "first_date": "2006-11-30",
+        "last_date": "2026-08-15"
+      },
+      "AVON-PRODUCTS-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2351,
+        "first_date": "2006-11-30",
+        "last_date": "2016-04-19"
+      },
+      "BEAM-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 1850,
+        "first_date": "2006-11-30",
+        "last_date": "2014-04-30"
+      },
+      "BED-BATH-BEYOND": {
+        "rows": 2969,
+        "first_date": "2006-11-30",
+        "last_date": "2018-08-23"
+      },
+      "BEMIS-CO": {
+        "rows": 2275,
+        "first_date": "2006-11-30",
+        "last_date": "2015-12-31"
+      },
+      "BIG-LOTS": {
+        "rows": 1818,
+        "first_date": "2006-11-30",
+        "last_date": "2014-03-14"
+      },
+      "BJ-SERVICES-COMPANY": {
+        "rows": 848,
+        "first_date": "2006-11-30",
+        "last_date": "2010-04-28"
+      },
+      "BLACK-DECKER": {
+        "rows": 819,
+        "first_date": "2006-11-30",
+        "last_date": "2010-03-12"
+      },
+      "BMC-SOFTWARE": {
+        "rows": 970,
+        "first_date": "2009-10-26",
+        "last_date": "2013-09-10"
+      },
+      "BMC-SOFTWARE-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 725,
+        "first_date": "2006-11-30",
+        "last_date": "2009-10-26"
+      },
+      "BROADCOM-A": {
+        "rows": 2303,
+        "first_date": "2006-11-30",
+        "last_date": "2016-01-30"
+      },
+      "BURLINGTON-NORTHERN-SANTA-FE-C": {
+        "rows": 798,
+        "first_date": "2006-11-30",
+        "last_date": "2010-02-12"
+      },
+      "CAREFUSION": {
+        "rows": 1375,
+        "first_date": "2009-09-03",
+        "last_date": "2015-03-16"
+      },
+      "CATALENT-INC": {
+        "rows": 2526,
+        "first_date": "2014-09-24",
+        "last_date": "2024-12-18"
+      },
+      "CELGENE-CORP-NASDAQ-National-Market": {
+        "rows": 3288,
+        "first_date": "2006-11-30",
+        "last_date": "2019-11-21"
+      },
+      "CEPHALON": {
+        "rows": 1216,
+        "first_date": "2006-11-30",
+        "last_date": "2011-10-13"
+      },
+      "CERNER-CORP-NASDAQ-National-Market": {
+        "rows": 3920,
+        "first_date": "2006-11-30",
+        "last_date": "2022-06-08"
+      },
+      "CHESAPEAKE-ENERGY-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 3090,
+        "first_date": "2006-11-30",
+        "last_date": "2019-04-16"
+      },
+      "CHUBB": {
+        "rows": 2283,
+        "first_date": "2006-11-30",
+        "last_date": "2016-01-14"
+      },
+      "CIMAREX-ENERGY": {
+        "rows": 3592,
+        "first_date": "2006-11-30",
+        "last_date": "2021-03-31"
+      },
+      "CIT-GROUP-INC": {
+        "rows": 729,
+        "first_date": "2006-11-30",
+        "last_date": "2009-11-03"
+      },
+      "CITRIX-SYSTEMS": {
+        "rows": 3993,
+        "first_date": "2006-11-30",
+        "last_date": "2022-09-30"
+      },
+      "COLUMBIA-PIPELINE": {
+        "rows": 259,
+        "first_date": "2015-06-23",
+        "last_date": "2016-06-30"
+      },
+      "COMCAST-A-SPL": {
+        "rows": 2270,
+        "first_date": "2006-11-30",
+        "last_date": "2015-12-12"
+      },
+      "COMERICA-INC": {
+        "rows": 4631,
+        "first_date": "2006-11-30",
+        "last_date": "2025-07-22"
+      },
+      "COMPUWARE": {
+        "rows": 1541,
+        "first_date": "2006-11-30",
+        "last_date": "2013-01-30"
+      },
+      "CONCHO-RES": {
+        "rows": 3384,
+        "first_date": "2007-08-06",
+        "last_date": "2021-01-16"
+      },
+      "CONSTELLATION-ENERGY-GROUP": {
+        "rows": 1320,
+        "first_date": "2006-11-30",
+        "last_date": "2012-03-12"
+      },
+      "CONVERGYS": {
+        "rows": 1028,
+        "first_date": "2006-11-30",
+        "last_date": "2011-01-18"
+      },
+      "COTERRA-ENERGY": {
+        "rows": 4746,
+        "first_date": "2006-11-30",
+        "last_date": "2026-05-07"
+      },
+      "COVENTRY-HEALTH": {
+        "rows": 1606,
+        "first_date": "2006-11-30",
+        "last_date": "2013-05-06"
+      },
+      "COVIDIEN": {
+        "rows": 1894,
+        "first_date": "2007-07-02",
+        "last_date": "2015-01-26"
+      },
+      "CR-BARD": {
+        "rows": 2775,
+        "first_date": "2006-11-30",
+        "last_date": "2017-12-28"
+      },
+      "CSRA": {
+        "rows": 596,
+        "first_date": "2015-11-16",
+        "last_date": "2018-04-03"
+      },
+      "DAYFORCE": {
+        "rows": 1916,
+        "first_date": "2018-04-26",
+        "last_date": "2026-02-04"
+      },
+      "DEAN-FOODS-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 1888,
+        "first_date": "2006-11-30",
+        "last_date": "2014-06-20"
+      },
+      "DELL-NASDAQ-National-Market": {
+        "rows": 1728,
+        "first_date": "2006-11-30",
+        "last_date": "2013-10-29"
+      },
+      "DENBURY-RESOURCES": {
+        "rows": 2349,
+        "first_date": "2006-11-30",
+        "last_date": "2016-04-19"
+      },
+      "DIAMOND-OFFSHORE": {
+        "rows": 2735,
+        "first_date": "2006-11-30",
+        "last_date": "2017-10-31"
+      },
+      "DIRECTV-GROUP": {
+        "rows": 478,
+        "first_date": "2007-12-05",
+        "last_date": "2009-11-19"
+      },
+      "DIRECTV-NASDAQ-National-Market": {
+        "rows": 1412,
+        "first_date": "2009-11-24",
+        "last_date": "2015-07-25"
+      },
+      "DISCOVER-FNCL-SRVCS": {
+        "rows": 4442,
+        "first_date": "2007-07-02",
+        "last_date": "2025-05-17"
+      },
+      "DISCOVERY-COMM-A": {
+        "rows": 3878,
+        "first_date": "2006-11-30",
+        "last_date": "2022-04-08"
+      },
+      "DISCOVERY-COMM-C": {
+        "rows": 3420,
+        "first_date": "2008-09-19",
+        "last_date": "2022-04-13"
+      },
+      "DISH-NETWORK-A": {
+        "rows": 4280,
+        "first_date": "2006-11-30",
+        "last_date": "2023-12-30"
+      },
+      "DOW-CHEMICAL-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2695,
+        "first_date": "2006-11-30",
+        "last_date": "2017-08-31"
+      },
+      "DU-PONT-NEMOURSCO-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2691,
+        "first_date": "2006-11-30",
+        "last_date": "2017-08-31"
+      },
+      "DUKE-REALTY-REIT": {
+        "rows": 3952,
+        "first_date": "2006-11-30",
+        "last_date": "2022-10-01"
+      },
+      "DUN-BRADSTREET": {
+        "rows": 2864,
+        "first_date": "2006-11-30",
+        "last_date": "2018-05-03"
+      },
+      "E-TRADE-FNCL": {
+        "rows": 3469,
+        "first_date": "2006-12-28",
+        "last_date": "2020-10-01"
+      },
+      "EASTMAN-KODAK-CO": {
+        "rows": 1273,
+        "first_date": "2006-11-30",
+        "last_date": "2012-01-10"
+      },
+      "EL-PASO": {
+        "rows": 1369,
+        "first_date": "2006-11-30",
+        "last_date": "2012-05-24"
+      },
+      "ELECTRONIC-ARTS-NASDAQ-National-Market": {
+        "rows": 4937,
+        "first_date": "2006-11-30",
+        "last_date": "2026-08-05"
+      },
+      "EMC": {
+        "rows": 2446,
+        "first_date": "2006-11-30",
+        "last_date": "2016-09-06"
+      },
+      "ENDO-INTERNAT": {
+        "rows": 1045,
+        "first_date": "2014-03-11",
+        "last_date": "2018-03-30"
+      },
+      "ENVISION-HLTHCR": {
+        "rows": 463,
+        "first_date": "2016-12-06",
+        "last_date": "2018-10-10"
+      },
+      "EQUITY-RESIDENTIAL": {
+        "rows": 4939,
+        "first_date": "2006-11-30",
+        "last_date": "2026-09-30"
+      },
+      "EXPRESS-SCRPTS-HLDG-NASDAQ-National-Market": {
+        "rows": 3054,
+        "first_date": "2006-11-30",
+        "last_date": "2018-12-21"
+      },
+      "FAMILY-DOLLAR-STORE": {
+        "rows": 2151,
+        "first_date": "2006-11-30",
+        "last_date": "2015-07-06"
+      },
+      "FIRST-REPUBLIC-BANK": {
+        "rows": 1945,
+        "first_date": "2016-09-09",
+        "last_date": "2024-05-31"
+      },
+      "FLIR-SYSTEMS": {
+        "rows": 3656,
+        "first_date": "2006-11-30",
+        "last_date": "2021-05-13"
+      },
+      "FOOT-LOCKER-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 3456,
+        "first_date": "2006-11-30",
+        "last_date": "2020-09-05"
+      },
+      "FOREST-LABORATORIES": {
+        "rows": 1897,
+        "first_date": "2006-11-30",
+        "last_date": "2014-06-30"
+      },
+      "FRONTIER-COMMUNICATIONS": {
+        "rows": 1260,
+        "first_date": "2006-11-30",
+        "last_date": "2011-12-15"
+      },
+      "GENERAL-GROWTH-PROPERTIES": {
+        "rows": 767,
+        "first_date": "2006-11-30",
+        "last_date": "2010-11-09"
+      },
+      "GENERAL-GROWTH-REIT": {
+        "rows": 1944,
+        "first_date": "2010-11-10",
+        "last_date": "2018-08-27"
+      },
+      "GENZYME": {
+        "rows": 1088,
+        "first_date": "2006-11-30",
+        "last_date": "2011-04-08"
+      },
+      "GOODRICH-CORP": {
+        "rows": 1410,
+        "first_date": "2006-11-30",
+        "last_date": "2012-07-26"
+      },
+      "H-J-HEINZ": {
+        "rows": 1629,
+        "first_date": "2006-11-30",
+        "last_date": "2013-06-07"
+      },
+      "HANESBRANDS": {
+        "rows": 4018,
+        "first_date": "2006-11-30",
+        "last_date": "2023-01-17"
+      },
+      "HESS": {
+        "rows": 4627,
+        "first_date": "2006-11-30",
+        "last_date": "2025-07-17"
+      },
+      "HILLSHIRE-BRANDS": {
+        "rows": 1662,
+        "first_date": "2006-11-30",
+        "last_date": "2013-07-26"
+      },
+      "HOLOGIC": {
+        "rows": 4852,
+        "first_date": "2006-11-30",
+        "last_date": "2026-04-07"
+      },
+      "HOSPIRA": {
+        "rows": 2194,
+        "first_date": "2006-11-30",
+        "last_date": "2015-09-02"
+      },
+      "HUDSON-CITY": {
+        "rows": 2240,
+        "first_date": "2006-11-30",
+        "last_date": "2015-10-31"
+      },
+      "IMS-HEALTH": {
+        "rows": 806,
+        "first_date": "2006-11-30",
+        "last_date": "2010-02-26"
+      },
+      "INTERPUBLIC-GROUP": {
+        "rows": 4724,
+        "first_date": "2006-11-30",
+        "last_date": "2025-11-27"
+      },
+      "INTL-GAME-TECHNOLOG": {
+        "rows": 2088,
+        "first_date": "2006-11-30",
+        "last_date": "2015-04-06"
+      },
+      "JANUS-CAPITAL-GRP": {
+        "rows": 1513,
+        "first_date": "2006-11-30",
+        "last_date": "2012-12-20"
+      },
+      "JC-PENNEY-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2017,
+        "first_date": "2006-11-30",
+        "last_date": "2014-12-30"
+      },
+      "JOHNSON-CONTROLS": {
+        "rows": 722,
+        "first_date": "2014-11-19",
+        "last_date": "2017-10-04"
+      },
+      "JONES-GROUP": {
+        "rows": 831,
+        "first_date": "2006-11-30",
+        "last_date": "2010-04-01"
+      },
+      "JOY-GLOBAL": {
+        "rows": 1226,
+        "first_date": "2011-12-07",
+        "last_date": "2016-11-04"
+      },
+      "JOY-GLOBAL-NASDAQ-National-Market": {
+        "rows": 1254,
+        "first_date": "2006-11-30",
+        "last_date": "2011-12-05"
+      },
+      "JUNIPER-NETWORKS-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 3888,
+        "first_date": "2009-10-30",
+        "last_date": "2025-07-02"
+      },
+      "JUNIPER-NETWORKS-NASDAQ-National-Market": {
+        "rows": 728,
+        "first_date": "2006-11-30",
+        "last_date": "2009-10-29"
+      },
+      "KANSAS-CITY-SO": {
+        "rows": 3778,
+        "first_date": "2006-11-30",
+        "last_date": "2021-12-14"
+      },
+      "KELLOGG-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 4730,
+        "first_date": "2006-11-30",
+        "last_date": "2025-12-11"
+      },
+      "KEURIG-GREEN-MOUNT-NASDAQ-National-Market": {
+        "rows": 2309,
+        "first_date": "2006-11-30",
+        "last_date": "2016-03-03"
+      },
+      "KRAFT-FOODS-GRP-NASDAQ-National-Market": {
+        "rows": 703,
+        "first_date": "2012-09-18",
+        "last_date": "2015-07-03"
+      },
+      "L3-TECHNOLOGIES": {
+        "rows": 618,
+        "first_date": "2017-01-04",
+        "last_date": "2019-06-28"
+      },
+      "LEGG-MASON": {
+        "rows": 2778,
+        "first_date": "2006-11-30",
+        "last_date": "2017-12-29"
+      },
+      "LEGGETT-PLATT": {
+        "rows": 4019,
+        "first_date": "2006-11-30",
+        "last_date": "2023-01-17"
+      },
+      "LEVEL-3-COMM": {
+        "rows": 1515,
+        "first_date": "2011-10-24",
+        "last_date": "2017-10-31"
+      },
+      "LEXMARK-INTL-A": {
+        "rows": 1727,
+        "first_date": "2006-11-30",
+        "last_date": "2013-10-29"
+      },
+      "LINEAR-TECHNOLOGY": {
+        "rows": 2594,
+        "first_date": "2006-11-30",
+        "last_date": "2017-03-11"
+      },
+      "LORILLARD": {
+        "rows": 1748,
+        "first_date": "2008-06-11",
+        "last_date": "2015-06-11"
+      },
+      "LSI": {
+        "rows": 346,
+        "first_date": "2012-12-18",
+        "last_date": "2014-05-06"
+      },
+      "LSI-LOGIC": {
+        "rows": 1512,
+        "first_date": "2006-11-30",
+        "last_date": "2012-12-18"
+      },
+      "MALLINCKRODT": {
+        "rows": 1305,
+        "first_date": "2013-06-18",
+        "last_date": "2018-08-23"
+      },
+      "MARATHON-OIL-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 4460,
+        "first_date": "2006-11-30",
+        "last_date": "2024-11-22"
+      },
+      "MARSHALL-ILSLEY": {
+        "rows": 1144,
+        "first_date": "2006-11-30",
+        "last_date": "2011-07-05"
+      },
+      "MASSEY-ENERGY": {
+        "rows": 1121,
+        "first_date": "2006-11-30",
+        "last_date": "2011-06-01"
+      },
+      "MAXIM-INTEGR-PROD": {
+        "rows": 3486,
+        "first_date": "2006-11-30",
+        "last_date": "2021-08-25"
+      },
+      "MCAFEE": {
+        "rows": 1054,
+        "first_date": "2006-11-30",
+        "last_date": "2011-02-28"
+      },
+      "MEAD-JOHNSON": {
+        "rows": 2092,
+        "first_date": "2009-02-11",
+        "last_date": "2017-06-14"
+      },
+      "MEADWESTVACO": {
+        "rows": 2144,
+        "first_date": "2006-11-30",
+        "last_date": "2015-07-01"
+      },
+      "MEDCO-HEALTH": {
+        "rows": 1334,
+        "first_date": "2006-11-30",
+        "last_date": "2012-04-02"
+      },
+      "MEREDITH": {
+        "rows": 1292,
+        "first_date": "2006-11-30",
+        "last_date": "2012-02-01"
+      },
+      "MILLIPORE-CORP": {
+        "rows": 902,
+        "first_date": "2006-11-30",
+        "last_date": "2010-07-14"
+      },
+      "MOLEX-INC": {
+        "rows": 1757,
+        "first_date": "2006-11-30",
+        "last_date": "2013-12-06"
+      },
+      "MONSANTO": {
+        "rows": 2882,
+        "first_date": "2006-11-30",
+        "last_date": "2018-06-06"
+      },
+      "MONSTER-WORLDWIDE": {
+        "rows": 1040,
+        "first_date": "2008-11-12",
+        "last_date": "2013-01-15"
+      },
+      "MOTOROLA-MOBILITY-HOLDINGS": {
+        "rows": 345,
+        "first_date": "2010-12-22",
+        "last_date": "2012-05-21"
+      },
+      "NATIONAL-SEMICONDUCTOR-CORP": {
+        "rows": 1202,
+        "first_date": "2006-11-30",
+        "last_date": "2011-09-23"
+      },
+      "NEWFIELD-EXPLORA": {
+        "rows": 3057,
+        "first_date": "2006-11-30",
+        "last_date": "2019-02-13"
+      },
+      "NICOR": {
+        "rows": 1256,
+        "first_date": "2006-11-30",
+        "last_date": "2011-12-09"
+      },
+      "NIELSEN": {
+        "rows": 1153,
+        "first_date": "2011-01-31",
+        "last_date": "2015-08-28"
+      },
+      "NIELSEN-NV": {
+        "rows": 1767,
+        "first_date": "2015-09-02",
+        "last_date": "2022-10-12"
+      },
+      "NOBLE-ENERGY": {
+        "rows": 3274,
+        "first_date": "2006-11-30",
+        "last_date": "2019-12-28"
+      },
+      "NORDSTROM": {
+        "rows": 3678,
+        "first_date": "2006-11-30",
+        "last_date": "2021-07-20"
+      },
+      "NOVELL-INC": {
+        "rows": 1099,
+        "first_date": "2006-11-30",
+        "last_date": "2011-04-27"
+      },
+      "NOVELLUS-SYSTEMS": {
+        "rows": 1378,
+        "first_date": "2006-11-30",
+        "last_date": "2012-06-04"
+      },
+      "NYSE-EURONEXT-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 1737,
+        "first_date": "2006-11-30",
+        "last_date": "2013-11-11"
+      },
+      "OFFICE-DEPOT-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 1280,
+        "first_date": "2006-11-30",
+        "last_date": "2012-01-17"
+      },
+      "PACTIV": {
+        "rows": 989,
+        "first_date": "2006-11-30",
+        "last_date": "2010-11-16"
+      },
+      "PALL": {
+        "rows": 2189,
+        "first_date": "2006-11-30",
+        "last_date": "2015-08-28"
+      },
+      "PATTERSON-COS": {
+        "rows": 3134,
+        "first_date": "2006-11-30",
+        "last_date": "2019-04-16"
+      },
+      "PEABODY-ENERGY-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2220,
+        "first_date": "2006-11-30",
+        "last_date": "2015-10-20"
+      },
+      "PEOPLES-UNTD": {
+        "rows": 3877,
+        "first_date": "2006-11-30",
+        "last_date": "2022-03-31"
+      },
+      "PEPCO-HOLDINGS": {
+        "rows": 2331,
+        "first_date": "2006-11-30",
+        "last_date": "2016-03-23"
+      },
+      "PEPSI-BOTTLING-GROUP-INC": {
+        "rows": 806,
+        "first_date": "2006-11-30",
+        "last_date": "2010-02-26"
+      },
+      "PETSMART": {
+        "rows": 2073,
+        "first_date": "2006-11-30",
+        "last_date": "2015-03-11"
+      },
+      "PIONEER-NATURAL-RES": {
+        "rows": 4319,
+        "first_date": "2006-11-30",
+        "last_date": "2024-05-03"
+      },
+      "PRECISION-CASTPARTS": {
+        "rows": 2295,
+        "first_date": "2006-11-30",
+        "last_date": "2016-01-29"
+      },
+      "QEP-RESOURCES": {
+        "rows": 1527,
+        "first_date": "2010-06-16",
+        "last_date": "2016-07-28"
+      },
+      "QLOGIC": {
+        "rows": 1302,
+        "first_date": "2006-11-30",
+        "last_date": "2012-02-15"
+      },
+      "QORVO": {
+        "rows": 2771,
+        "first_date": "2015-01-06",
+        "last_date": "2026-01-20"
+      },
+      "RADIOSHACK": {
+        "rows": 1416,
+        "first_date": "2006-11-30",
+        "last_date": "2012-07-27"
+      },
+      "RAYTHEON": {
+        "rows": 3347,
+        "first_date": "2006-11-30",
+        "last_date": "2020-04-03"
+      },
+      "RED-HAT": {
+        "rows": 3133,
+        "first_date": "2006-12-13",
+        "last_date": "2019-07-05"
+      },
+      "REYNOLDS-AMERICAN": {
+        "rows": 2666,
+        "first_date": "2006-11-30",
+        "last_date": "2017-07-24"
+      },
+      "ROCKWELL-COLLINS": {
+        "rows": 3002,
+        "first_date": "2006-11-30",
+        "last_date": "2018-11-26"
+      },
+      "SAFEWAY": {
+        "rows": 2044,
+        "first_date": "2006-11-30",
+        "last_date": "2015-01-29"
+      },
+      "SANDISK-NASDAQ-National-Market": {
+        "rows": 2378,
+        "first_date": "2006-11-30",
+        "last_date": "2016-05-12"
+      },
+      "SCANA": {
+        "rows": 3027,
+        "first_date": "2006-11-30",
+        "last_date": "2018-12-31"
+      },
+      "SCHERING-PLOUGH": {
+        "rows": 730,
+        "first_date": "2006-11-30",
+        "last_date": "2009-11-03"
+      },
+      "SEALED-AIR": {
+        "rows": 4498,
+        "first_date": "2006-11-30",
+        "last_date": "2025-01-14"
+      },
+      "SEARS-HOLDINGS": {
+        "rows": 1712,
+        "first_date": "2006-11-30",
+        "last_date": "2013-10-03"
+      },
+      "SIGMA-ALDRICH": {
+        "rows": 2252,
+        "first_date": "2006-11-30",
+        "last_date": "2015-11-17"
+      },
+      "SIGNATURE-BANK": {
+        "rows": 4092,
+        "first_date": "2006-11-30",
+        "last_date": "2023-03-10"
+      },
+      "SMITH-INTERNATIONAL": {
+        "rows": 933,
+        "first_date": "2006-11-30",
+        "last_date": "2010-08-27"
+      },
+      "SOUTHWESTERN-ENERGY": {
+        "rows": 2853,
+        "first_date": "2006-11-30",
+        "last_date": "2018-05-02"
+      },
+      "SPECTRA-ENERGY": {
+        "rows": 2454,
+        "first_date": "2007-01-04",
+        "last_date": "2017-02-24"
+      },
+      "SPRINT-NEXTEL-1": {
+        "rows": 1647,
+        "first_date": "2006-11-30",
+        "last_date": "2013-07-10"
+      },
+      "ST-JUDE-MEDICAL-INC": {
+        "rows": 2529,
+        "first_date": "2006-11-30",
+        "last_date": "2017-01-04"
+      },
+      "STAPLES-NASDAQ-National-Market": {
+        "rows": 2724,
+        "first_date": "2006-11-30",
+        "last_date": "2017-09-13"
+      },
+      "STERICYCLE": {
+        "rows": 3316,
+        "first_date": "2006-11-30",
+        "last_date": "2019-12-31"
+      },
+      "SUN-MICROSYSTEMS": {
+        "rows": 786,
+        "first_date": "2006-11-30",
+        "last_date": "2010-01-26"
+      },
+      "SUNEDISON": {
+        "rows": 1531,
+        "first_date": "2006-11-30",
+        "last_date": "2013-01-15"
+      },
+      "SUNOCO-INC": {
+        "rows": 1461,
+        "first_date": "2006-11-30",
+        "last_date": "2012-10-04"
+      },
+      "SUNTRUST-BANKS-INC": {
+        "rows": 3263,
+        "first_date": "2006-11-30",
+        "last_date": "2019-12-07"
+      },
+      "SUPERVALU": {
+        "rows": 1621,
+        "first_date": "2006-11-30",
+        "last_date": "2013-05-29"
+      },
+      "SVB-FINANCIAL-GROUP": {
+        "rows": 4092,
+        "first_date": "2006-11-30",
+        "last_date": "2023-03-10"
+      },
+      "TECO-ENERGY": {
+        "rows": 2400,
+        "first_date": "2006-11-30",
+        "last_date": "2016-06-30"
+      },
+      "TEGNA": {
+        "rows": 2899,
+        "first_date": "2006-11-30",
+        "last_date": "2018-06-29"
+      },
+      "TELLABS": {
+        "rows": 1533,
+        "first_date": "2006-11-30",
+        "last_date": "2013-01-17"
+      },
+      "TESORO": {
+        "rows": 2963,
+        "first_date": "2006-11-30",
+        "last_date": "2018-09-28"
+      },
+      "TIFFANY-CO": {
+        "rows": 3545,
+        "first_date": "2006-11-30",
+        "last_date": "2021-01-07"
+      },
+      "TIME-WARNER-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2888,
+        "first_date": "2006-11-30",
+        "last_date": "2018-06-13"
+      },
+      "TIME-WARNER-CBL": {
+        "rows": 2217,
+        "first_date": "2007-03-05",
+        "last_date": "2016-05-17"
+      },
+      "TITANIUM-METALS": {
+        "rows": 1520,
+        "first_date": "2006-11-30",
+        "last_date": "2013-01-08"
+      },
+      "TWENTY-FIRST-CENT-A": {
+        "rows": 2577,
+        "first_date": "2008-12-31",
+        "last_date": "2019-03-19"
+      },
+      "TWENTY-FIRST-CENT-B": {
+        "rows": 2577,
+        "first_date": "2008-12-31",
+        "last_date": "2019-03-19"
+      },
+      "TWITTER-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2232,
+        "first_date": "2013-11-07",
+        "last_date": "2022-10-28"
+      },
+      "US-STEEL-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2161,
+        "first_date": "2006-11-30",
+        "last_date": "2015-07-30"
+      },
+      "VARIAN-MED-SYSTEMS": {
+        "rows": 3615,
+        "first_date": "2006-11-30",
+        "last_date": "2021-04-15"
+      },
+      "VIACOM-B": {
+        "rows": 2036,
+        "first_date": "2011-12-02",
+        "last_date": "2019-12-04"
+      },
+      "WALGREEN-Bolsa-de-Nueva-York-NYSE": {
+        "rows": 2019,
+        "first_date": "2006-11-30",
+        "last_date": "2014-12-30"
+      },
+      "WALGREENS-BOOTS": {
+        "rows": 2654,
+        "first_date": "2015-01-26",
+        "last_date": "2025-08-28"
+      },
+      "WELLCARE-HEALTH": {
+        "rows": 3296,
+        "first_date": "2006-11-30",
+        "last_date": "2020-01-24"
+      },
+      "WESTROCK": {
+        "rows": 2215,
+        "first_date": "2015-07-02",
+        "last_date": "2024-07-06"
+      },
+      "WHOLE-FOODS-MARKET-NASDAQ-National-Market": {
+        "rows": 2710,
+        "first_date": "2006-11-30",
+        "last_date": "2017-08-25"
+      },
+      "WINDSTREAM": {
+        "rows": 755,
+        "first_date": "2006-11-30",
+        "last_date": "2009-12-09"
+      },
+      "WINDSTREAM-HLDGS": {
+        "rows": 1611,
+        "first_date": "2009-12-09",
+        "last_date": "2016-05-04"
+      },
+      "WPX-ENERGY": {
+        "rows": 818,
+        "first_date": "2011-12-30",
+        "last_date": "2015-04-21"
+      },
+      "WYETH": {
+        "rows": 716,
+        "first_date": "2006-11-30",
+        "last_date": "2009-10-15"
+      },
+      "XILINX": {
+        "rows": 3852,
+        "first_date": "2006-11-30",
+        "last_date": "2022-02-11"
+      },
+      "XL-GROUP": {
+        "rows": 2042,
+        "first_date": "2010-07-07",
+        "last_date": "2018-09-11"
+      },
+      "XTO-ENERGY": {
+        "rows": 889,
+        "first_date": "2006-11-30",
+        "last_date": "2010-06-26"
+      },
+      "YAHOO": {
+        "rows": 2670,
+        "first_date": "2006-11-30",
+        "last_date": "2017-06-30"
+      }
+    },
+    "pages_without_prices": [],
+    "downloaded_at_utc": "2026-10-11 21:09"
+  },
+  "benchmark": {
+    "source": "Yahoo Finance",
+    "code": "SPY",
+    "url": "https://finance.yahoo.com/quote/SPY",
+    "first_date": "2006-11-30",
+    "last_date": "2026-09-30",
+    "n_obs": 4988,
+    "downloaded_at_utc": "2026-10-11 20:10"
+  },
+  "equal_weight": {
+    "source": "Yahoo Finance",
+    "code": "RSP",
+    "url": "https://finance.yahoo.com/quote/RSP",
+    "first_date": "2006-11-30",
+    "last_date": "2026-09-30",
+    "n_obs": 4988,
+    "downloaded_at_utc": "2026-10-11 20:10"
+  },
+  "risk_free": {
+    "source": "FRED",
+    "code": "DTB3",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3",
+    "first_date": "1954-01-04",
+    "last_date": "2026-10-08",
+    "n_obs": 18184,
+    "downloaded_at_utc": "2026-10-11 20:10"
+  }
+}
