@@ -21,8 +21,15 @@ were later taken over or went bankrupt are put back into the sample?
 | How complete is the universe? | Between **95.0% and 99.8%** of the index members have prices on every day (98.3% on average). 100% is not reachable with free data: see [section 1](#1-data-and-what-is-missing) |
 
 The diversification ratio (DR) is the weighted average volatility of the stocks divided
-by the volatility of the portfolio. A DR of 2.36 means that the portfolio is 2.36 times
-less volatile than its average holding.
+by the volatility of the portfolio:
+
+```math
+\mathrm{DR} = \frac{\sum_i w_i\, \sigma_i}{\sigma_p}
+```
+
+where $w_i$ is the weight of stock $i$, $\sigma_i$ its volatility and $\sigma_p$ the
+volatility of the portfolio. A DR of 2.36 means that the portfolio is 2.36 times less
+volatile than its average holding.
 
 Other findings:
 - **The equal-weight portfolio built here matches the fund that does the same with real money.** It returns 12.8% per year against 12.7% for the equal-weight S&P 500 fund (RSP), with a correlation of 0.997 between their daily returns. That fund holds every member, including the ones that later disappeared, so this is an independent check of the universe and of the prices.
@@ -142,10 +149,11 @@ real event (PG&E in January 2019, the takeover of Keurig, Netflix in 2011 and 20
 
 ## 2. Methodology, step by step
 
-**The diversification ratio.** For weights *w*, volatilities *σ* and covariance matrix *Σ*:
+**The diversification ratio.** For a portfolio with weights $w$, where $\sigma$ is the
+vector of the volatilities of the stocks and $\Sigma$ their covariance matrix:
 
-```
-DR(w) = (w · σ) / sqrt(w' Σ w)
+```math
+\mathrm{DR}(w) = \frac{w^\top \sigma}{\sqrt{w^\top \Sigma\, w}}
 ```
 
 It is 1 when the portfolio is a single stock, or when all stocks move together, and grows
@@ -153,25 +161,71 @@ with the number of independent sources of risk. Choueifaty and Coignard (2008) d
 Most Diversified Portfolio as the long-only portfolio that maximises it.
 
 **Walk-forward analysis.** The whole exercise is repeated every year with the information
-available on that day:
+available on that day. The weights are computed with the 504 trading days before it (the
+in-sample window) and held for the 252 that follow (the out-of-sample window). Then both
+windows move forward by a year.
 
-```
-|<------- in-sample: 504 days ------->| 1 day |<- out-of-sample: 252 days ->|
-                 weights are computed here ^        and held here, untouched
+![Walk-forward design](results/figures/fig00_walk_forward_design.png)
+
+**1. Universe.** The members of the S&P 500 *on that day* with a return on at least 99% of
+the 504 in-sample days. On average 488 stocks are eligible.
+
+**2. Covariance.** Sample correlation matrix $R$ of the in-sample window, shrunk towards
+the identity $I$ (Ledoit and Wolf, 2004a), with the sample volatilities:
+
+```math
+\hat{C} = (1 - \delta)\, R + \delta\, I, \qquad \hat{\Sigma}_{ij} = \sigma_i\, \sigma_j\, \hat{C}_{ij}
 ```
 
-1. **Universe.** The members of the S&P 500 *on that day* with a return on at least 99% of
-   the 504 in-sample days. On average 488 stocks are eligible.
-2. **Covariance.** Sample correlation matrix of the in-sample window, shrunk towards the
-   identity (Ledoit and Wolf, 2004a), with sample volatilities.
-3. **Optimisation.** Three portfolios with the same stocks: the MDP, minimum variance and
-   equal weight. Long-only, fully invested, at most 5% per stock.
-4. **Trading.** The portfolio is bought at the close of the next day and held for 252
-   trading days (one year) without rebalancing. Each purchase or sale costs 10 basis points.
-5. **Measurement.** The DR is computed twice with the same formula: on the window the
-   weights were fitted to, and on the year that followed. Their ratio is the
-   *walk-forward efficiency*. Because a longer window gives a lower DR, the in-sample
-   figure is also computed in blocks of one year ("like for like").
+The intensity $\delta$ is the one that minimises the expected squared error of
+$\hat{C}$. It is 0.03 on average (0.02 to 0.07).
+
+**3. Optimisation.** Three portfolios with the same $N$ eligible stocks. All are long-only
+and fully invested, with at most 5% per stock ($w_i \ge 0$, $\sum_i w_i = 1$,
+$w_i \le 0.05$):
+
+```math
+\begin{aligned}
+\text{Most Diversified Portfolio:} \quad & \max_{w}\ \frac{w^\top \sigma}{\sqrt{w^\top \hat{\Sigma}\, w}} \\
+\text{Minimum variance:} \quad & \min_{w}\ w^\top \hat{\Sigma}\, w \\
+\text{Equal weight:} \quad & w_i = \frac{1}{N}
+\end{aligned}
+```
+
+The DR does not change if all the weights are multiplied by a constant. With
+$u_i = w_i \sigma_i$, maximising it is the same as minimising $u^\top \hat{C} u$ with
+$\sum_i u_i = 1$: the MDP is the minimum-variance portfolio of the *correlation*
+matrix, with each position then divided by the volatility of its stock. That is how it
+is solved ([`maxdiv/optimizer.py`](maxdiv/optimizer.py)).
+
+**4. Trading.** The portfolio is bought at the close of the next day and held for 252
+trading days (one year) without rebalancing. Each purchase or sale costs 10 basis
+points. On the first day of each window the return $r_t$ of the portfolio becomes
+
+```math
+(1 + r_t)\Big(1 - c \sum_i \big| w_i^{\text{new}} - w_i^{\text{old}} \big|\Big) - 1, \qquad c = 0.001
+```
+
+where $w^{\text{old}}$ are the weights the portfolio has drifted to and
+$w^{\text{new}}$ the ones it moves to.
+
+**5. Measurement.** The DR is computed twice with the same formula, each time with the
+sample covariance of the window it refers to: on the window the weights were fitted to
+($\mathrm{DR}^{\text{in}}$) and on the year that followed ($\mathrm{DR}^{\text{out}}$).
+The ratio of their averages over the $K$ windows is the *walk-forward efficiency*:
+
+```math
+\text{Walk-forward efficiency} = \frac{\sum_{k=1}^{K} \mathrm{DR}^{\text{out}}_k}{\sum_{k=1}^{K} \mathrm{DR}^{\text{in}}_k}
+```
+
+Because a longer window gives a lower DR, the in-sample figure is also computed in
+blocks of one year ("like for like"). The MDP is compared with each of the other two
+portfolios window by window, with the $t$-statistic of the $K$ differences between
+their out-of-sample DRs (mean $\bar{d}$, standard deviation $s_d$):
+
+```math
+t = \frac{\bar{d}}{s_d / \sqrt{K}}
+```
 
 Nothing is done between two rebalances. A stock that leaves the index stays in the
 portfolio until the next one. A stock that stops trading stays at its last price: in a
@@ -213,9 +267,23 @@ out-of-sample DR is higher than that of equal weight in all 17 windows (average 
 | S&P 500 fund (SPY) | 14.5% | 17.0% | 0.80 | −33.7% | 1.00 | – | – | – |
 | Equal-weight S&P 500 fund (RSP) | 12.7% | 17.8% | 0.68 | −39.0% | 1.00 | – | – | – |
 
-After costs, 9 September 2009 to 30 September 2026. The MDP has the Sharpe ratio of equal
-weight and a lower one than minimum variance and than the index fund. Its diversification
-did not protect it in March 2020, when everything fell together.
+After costs, 9 September 2009 to 30 September 2026. With $r_t$ the daily return of a
+portfolio on each of the $T$ days, $e_t = r_t - r^f_t$ its excess over the 3-month
+Treasury bill, and bars and $s$ for means and standard deviations of daily figures:
+
+```math
+\begin{aligned}
+\text{Return per year} &= \Big(\prod_{t=1}^{T} (1 + r_t)\Big)^{252/T} - 1 \\
+\text{Volatility} &= \sqrt{252}\; s_r \\
+\text{Sharpe ratio} &= \sqrt{252}\; \frac{\bar{e}}{s_e} \\
+\text{Worst drawdown} &= \min_t \left(\frac{V_t}{\max_{u \le t} V_u} - 1\right), \qquad V_t = \prod_{u=1}^{t} (1 + r_u) \\
+\text{Beta} &= \frac{\mathrm{cov}(r,\, r^{\text{SPY}})}{\mathrm{var}(r^{\text{SPY}})}
+\end{aligned}
+```
+
+The MDP has the Sharpe ratio of equal weight and a lower one than minimum variance and
+than the index fund. Its diversification did not protect it in March 2020, when everything
+fell together.
 
 The last column is the part of the portfolio that, on an average day, is in a company
 that has stopped trading: the cash of a takeover that waits for the next rebalance. The MDP
@@ -228,6 +296,10 @@ for.
 **Why is its volatility not lower?** Because the MDP does not look for calm stocks. The
 volatility of a portfolio is the average volatility of its stocks divided by its
 diversification ratio:
+
+```math
+\sigma_p = \frac{\sum_i w_i\, \sigma_i}{\mathrm{DR}}
+```
 
 | Portfolio | Average volatility of the stocks held | Diversification ratio | Volatility of the portfolio |
 |---|---|---|---|
@@ -360,7 +432,24 @@ The three changes, fixed before running them:
 |---|---|---|
 | In-sample window | 252, 504, 756 days | More history gives less noisy correlations, but older ones. These are the lengths of the robustness table |
 | What the correlations are shrunk towards | Identity; constant correlation | The baseline shrinks them towards zero, and no two stocks are unrelated. Ledoit and Wolf (2004b) shrink towards the average correlation |
-| How much a volatile stock is expected to pay | Return grows with volatility<sup>1</sup>, volatility<sup>0.5</sup>, volatility<sup>0</sup> | The MDP is the best portfolio if a stock twice as volatile pays twice as much. It was known before 2009 that volatile stocks pay less than that (Ang, Hodrick, Xing and Zhang, 2006). Exponent 0 is minimum variance |
+| How much a volatile stock is expected to pay | Expected return proportional to $\sigma^{\gamma}$, with $\gamma$ = 1, 0.5 or 0 | The MDP is the best portfolio if a stock twice as volatile pays twice as much. It was known before 2009 that volatile stocks pay less than that (Ang, Hodrick, Xing and Zhang, 2006). Exponent 0 is minimum variance |
+
+The last two, in formulas. The constant-correlation target replaces the identity with
+the matrix $F$ in which every pair of stocks has the average sample correlation
+$\bar{\rho}$:
+
+```math
+\hat{C} = (1 - \delta)\, R + \delta\, F, \qquad F_{ii} = 1, \quad F_{ij} = \bar{\rho} \ \ (i \neq j)
+```
+
+And if the expected return of stock $i$ is proportional to $\sigma_i^{\gamma}$, the
+portfolio with the highest expected Sharpe ratio is the solution of
+
+```math
+\max_{w}\ \frac{\sum_i w_i\, \sigma_i^{\gamma}}{\sqrt{w^\top \hat{\Sigma}\, w}}
+```
+
+which is the MDP for $\gamma = 1$ and minimum variance for $\gamma = 0$.
 
 Together they give 18 candidates, 6 of which are versions of the MDP.
 
@@ -372,8 +461,8 @@ Together they give 18 candidates, 6 of which are versions of the MDP.
 | In-sample window: 252 days | 2.33 | 10.9% | 14.0% | 0.71 | +0.03 (−0.09 to +0.15) |
 | In-sample window: 756 days | 2.38 | 12.1% | 14.6% | 0.75 | +0.10 (+0.00 to +0.19) |
 | Shrinkage towards constant correlation | 2.36 | 10.9% | 14.6% | 0.68 | +0.01 (−0.00 to +0.02) |
-| Return grows with volatility<sup>0.5</sup> | 2.25 | 9.9% | 13.2% | 0.67 | −0.00 (−0.15 to +0.17) |
-| Return grows with volatility<sup>0</sup> (minimum variance) | 2.01 | 11.0% | 12.7% | 0.77 | +0.09 (−0.13 to +0.35) |
+| Expected return proportional to $\sigma^{0.5}$ | 2.25 | 9.9% | 13.2% | 0.67 | −0.00 (−0.15 to +0.17) |
+| Expected return proportional to $\sigma^{0}$ (minimum variance) | 2.01 | 11.0% | 12.7% | 0.77 | +0.09 (−0.13 to +0.35) |
 
 The longer window is the only change whose interval leaves 0 out, and only just. The
 shrinkage target barely matters for the MDP, which only cares about the *differences*

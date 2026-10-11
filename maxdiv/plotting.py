@@ -7,6 +7,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.ticker import FuncFormatter, NullLocator, PercentFormatter
 
 from . import config
@@ -42,6 +43,61 @@ def _date_axis(ax):
     locator = mdates.AutoDateLocator()
     ax.xaxis.set_major_locator(locator)
     ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(locator))
+
+
+def plot_design(windows, dates, design):
+    """How the walk-forward works: one window in detail, and every window of the run on the calendar.
+
+    `dates` is the trading calendar, needed to find where each in-sample window starts.
+    """
+    w = windows.drop_duplicates("optimised")
+    train, test, lag = design.train_days, design.test_days, config.EXECUTION_LAG
+    fig, (a, b) = plt.subplots(2, 1, figsize=(10, 7.6), gridspec_kw={"height_ratios": [1, 3.3]})
+
+    # One window. The lag is drawn wider than it is so that it can be seen.
+    gap = 0.025 * (train + test)
+    a.barh(0, train, left=0, height=0.6, color=SHADE, edgecolor=INK_3, lw=0.8)
+    a.barh(0, test, left=train + gap, height=0.6, color=COLORS["MDP"])
+    a.text(train / 2, 0, f"In-sample: {train} trading days", ha="center", va="center")
+    a.text(train + gap + test / 2, 0, f"Out-of-sample: {test} trading days", ha="center",
+           va="center", color="white")
+    for x, align, note in [
+            (train, "right", "Day t: the weights are computed,\nwith these returns only"),
+            (train + gap, "left", f"Day t + {lag}: the portfolio is bought at the close\n"
+                                  "and held untouched for these days")]:
+        a.plot([x, x], [-0.3, -0.52], color=INK_3, lw=0.8)
+        a.text(x, -0.6, note, ha=align, va="top", color=INK_2, fontsize=9)
+    a.set_xlim(0, train + gap + test)
+    a.set_ylim(-1.2, 0.4)
+    a.set_title("One walk-forward window")
+    a.axis("off")
+    a.title.set_visible(True)
+
+    # Every window of the run, on the calendar
+    fitted = dates.get_indexer(w["optimised"])
+    in_sample_start = mdates.date2num(dates[fitted - train + 1])
+    in_sample_end = mdates.date2num(w["optimised"])
+    first, last = mdates.date2num(w["first_day"]), mdates.date2num(w["last_day"])
+    rows = np.arange(len(w))
+    joined = len(w) + 0.5
+    b.barh(rows, in_sample_end - in_sample_start, left=in_sample_start, height=0.62,
+           color=SHADE, edgecolor=INK_3, lw=0.6)
+    b.barh(rows, last - first, left=first, height=0.62, color=COLORS["MDP"])
+    b.barh(joined, last - first, left=first, height=0.62, color=COLORS["MDP"], edgecolor=SURFACE, lw=0.8)
+    b.set_yticks(list(rows) + [joined], [str(k + 1) for k in rows] + ["Backtest"], fontsize=8.5)
+    b.invert_yaxis()
+    b.set_ylabel("Window")
+    b.grid(axis="y", visible=False)
+    b.grid(axis="x")
+    b.set_axisbelow(True)
+    b.set_xlim(in_sample_start.min() - 150, last.max() + 150)
+    b.xaxis_date()
+    _date_axis(b)
+    incomplete = " (the last one is not complete)" if w["dr_out"].isna().any() else ""
+    b.set_title(f"The {len(w)} windows of this study{incomplete}. Each one starts {test} trading days "
+                "after the\nprevious one; the out-of-sample periods, one after another, are the backtest")
+    fig.tight_layout()
+    _save(fig, "fig00_walk_forward_design.png")
 
 
 def plot_walk_forward(windows):

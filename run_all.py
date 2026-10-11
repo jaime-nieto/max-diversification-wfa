@@ -217,7 +217,7 @@ def step0_data_checks(panel, base):
 # ---------------------------------------------------------------------------
 # Step 1. Walk-forward: does the optimised diversification ratio survive out-of-sample?
 # ---------------------------------------------------------------------------
-def step1_walk_forward(base):
+def step1_walk_forward(panel, base):
     summary = metrics.walk_forward_summary(base.windows)
     rows = [{"Portfolio": LABELS.get(s, s), "Windows": int(r.windows),
              "DR in-sample (average)": num(r.dr_in), "DR out-of-sample (average)": num(r.dr_out),
@@ -251,6 +251,7 @@ def step1_walk_forward(base):
                pd.DataFrame(rows), raw=pd.DataFrame(raw),
                note="Paired t-test on non-overlapping windows.")
     base.windows.to_csv(config.TABLE_DIR / "windows.csv", index=False)
+    pl.plot_design(base.windows, panel.returns.index, base.design)
     pl.plot_walk_forward(base.windows)
 
 
@@ -682,7 +683,7 @@ def main():
         print("Step 0: data checks")
         step0_data_checks(panel, base)
         print("Step 1: in-sample vs out-of-sample diversification ratio")
-        step1_walk_forward(base)
+        step1_walk_forward(panel, base)
         print("Step 2: out-of-sample performance")
         net = step2_performance(panel, base)
         print("Step 3: portfolio composition")
